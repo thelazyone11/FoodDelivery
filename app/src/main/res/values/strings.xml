@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">Food Delivery</string>
+    <string name="menu_name">Menu</string>
+    <string name="profile_name">Profile</string>
+    <string name="cart_action">Cart</string>
+    <string name="checkout_cart">Check Out</string>
+    <string name="addItem_cart">Add Item</string>
+    <string name="order_status_action">Order Status</string>
+</resources>
