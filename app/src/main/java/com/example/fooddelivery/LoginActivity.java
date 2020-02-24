@@ -13,12 +13,12 @@ public class LoginActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+        Button btn_otpConfire = findViewById(R.id.btn_Confire);
 
-        Button btn_PhoneEnter = findViewById(R.id.btn_phoneEnter);
-        btn_PhoneEnter.setOnClickListener(new View.OnClickListener() {
+        btn_otpConfire.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(getApplicationContext(),OtpActivity.class));
+                startActivity(new Intent(getApplicationContext(),MainActivity.class));
             }
         });
     }

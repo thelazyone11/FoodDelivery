@@ -1,4 +1,4 @@
-package com.example.fooddelivery;
+package com.example.fooddelivery.recycle.adapter;
 
 public class FoodList {
     private int mImageResource;

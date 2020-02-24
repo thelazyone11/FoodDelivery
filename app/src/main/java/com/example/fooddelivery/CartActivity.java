@@ -13,6 +13,10 @@ import android.view.Window;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import com.example.fooddelivery.recycle.adapter.CartItemAdapter;
+import com.example.fooddelivery.recycle.adapter.CartList;
 
 import java.util.ArrayList;
 
@@ -83,8 +87,7 @@ public class CartActivity extends AppCompatActivity {
             dialogButton2.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Intent intent = new Intent(CartActivity.this,OrderStatusActivity.class);
-                    startActivity(intent);
+                    Toast.makeText(getApplicationContext(), "Clicked", Toast.LENGTH_SHORT);
                 }
             });
 
