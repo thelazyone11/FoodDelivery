@@ -29,10 +29,18 @@
            android:text="1234"/>
 
        <Button
+           android:background="@android:color/holo_green_light"
            android:id="@+id/btn_Confire"
            android:layout_width="match_parent"
            android:layout_height="wrap_content"
            android:text="Confire"/>
+
+       <TextView
+           android:id="@+id/tv_toSign"
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content"
+           android:text="Don't have an account?Sign Up"
+           android:layout_gravity="center_horizontal"/>
    </LinearLayout>
 
 </RelativeLayout>

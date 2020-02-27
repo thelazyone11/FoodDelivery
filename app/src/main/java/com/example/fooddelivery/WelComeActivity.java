@@ -14,11 +14,19 @@ public class WelComeActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_welcome);
 
-        Button btn_PhoneEnter = findViewById(R.id.btn_logIn);
-        btn_PhoneEnter.setOnClickListener(new View.OnClickListener() {
+        Button btn_signUp = findViewById(R.id.btn_signUp);
+        Button btn_logIn = findViewById(R.id.btn_logIn);
+
+        btn_logIn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(getApplicationContext(), LoginActivity.class));
+            }
+        });
+        btn_signUp.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getApplicationContext(), SignInActivity.class));
             }
         });
     }

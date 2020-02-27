@@ -10,7 +10,6 @@ import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -18,64 +17,66 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 
-public class LoginActivity extends AppCompatActivity {
-    private Button btn_Confire;
-    private EditText et_Email_log;
-    private EditText et_Password_log;
-    private TextView tv_toSign;
+public class SignInActivity extends AppCompatActivity {
+    private EditText et_email_sign;
+    private EditText et_phone_sign;
+    private EditText et_password_sign;
+    private Button bt_signUp_sign;
     private FirebaseAuth mAuth;
     private ProgressDialog mProgressDialog;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_login);
-        btn_Confire =  findViewById(R.id.btn_Confire);
-        et_Email_log = findViewById(R.id.et_email_log);
-        et_Password_log = findViewById(R.id.et_password_log);
-        tv_toSign = findViewById(R.id.tv_toSign);
-        mAuth = FirebaseAuth.getInstance();
+        setContentView(R.layout.activity_sign_in);
+        mAuth=FirebaseAuth.getInstance();
         mProgressDialog = new ProgressDialog(this);
 
-        tv_toSign.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent i = new Intent(getApplicationContext(),SignInActivity.class);
-                startActivity(i);
-            }
-        });
+        et_email_sign = findViewById(R.id.et_email_sign);
+        et_password_sign = findViewById(R.id.et_password_sign);
+        et_phone_sign = findViewById(R.id.et_phone_sign);
+        bt_signUp_sign =findViewById(R.id.btn_signUp_sign);
 
-        btn_Confire.setOnClickListener(new View.OnClickListener() {
+        bt_signUp_sign.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-                String mEmail =et_Email_log.getText().toString().trim();
-                final String mPassword = et_Password_log.getText().toString().trim();
+                String mEmail = et_email_sign.getText().toString().trim();
+                String mPhone = et_phone_sign.getText().toString().trim();
+                String mPassword = et_password_sign.getText().toString().trim();
 
                 if(TextUtils.isEmpty(mEmail)){
-                    et_Email_log.setError("Requried Field");
+                    et_email_sign.setError("Requried Field...");
+                    return;
+                }
+
+                if(TextUtils.isEmpty(mPhone)){
+                    et_phone_sign.setError("Requried Field...");
                     return;
                 }
                 if(TextUtils.isEmpty(mPassword)){
-                    et_Password_log.setError("Requried Field");
+                    et_password_sign.setError("Requried Field...");
                     return;
                 }
                 mProgressDialog.setMessage("Processing...");
                 mProgressDialog.show();
 
-                mAuth.signInWithEmailAndPassword(mEmail,mPassword).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                mAuth.createUserWithEmailAndPassword(mEmail,mPassword).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if(task.isSuccessful()){
+                            Toast.makeText(getApplicationContext(),"Sign Up Sucessfull...", Toast.LENGTH_SHORT);
                             mProgressDialog.dismiss();
                             startActivity(new Intent(getApplicationContext(),MainActivity.class));
-                        }else{
+                        }else {
+                            Toast.makeText(getApplicationContext(),"Signing Failed, Try Again",Toast.LENGTH_SHORT);
                             mProgressDialog.dismiss();
-                            Toast.makeText(getApplicationContext(),"check your email and password",Toast.LENGTH_SHORT);
                         }
-
                     }
                 });
             }
         });
+
     }
 }

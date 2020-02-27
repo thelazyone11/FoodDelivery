@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="15dp"
+        android:orientation="vertical"
+        android:layout_centerVertical="true">
+
+        <EditText
+            android:id="@+id/et_email_sign"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textEmailAddress"
+            android:hint="Email"
+            android:text="johnwick@gmail.com"/>
+        <EditText
+            android:id="@+id/et_phone_sign"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="phone"
+            android:hint="Phone Number"
+            android:text="8866443377"/>
+
+        <EditText
+            android:id="@+id/et_password_sign"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textPassword"
+            android:hint="Password"
+            android:text="1234"/>
+
+        <Button
+            android:background="@android:color/holo_green_dark"
+            android:id="@+id/btn_signUp_sign"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Sign Up"/>
+    </LinearLayout>
+
+</RelativeLayout>
